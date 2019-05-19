@@ -3,23 +3,24 @@
 #### Tasksテーブル
 |カラム名|データ型|カラム説明|
 |:---:|:---:|:---:|
-|task|string|タスク名|
-|details|string|タスク詳細|
-|deadline|datetime|締め切り||
-|status|int|ステータス|
+|task_name|string|タスクの名前|
+|details|string|タスクの詳細|
+|deadline|datetime|締め切りを管理する|
+|priority|int|優先順位管理|
+|status|int|ステータス管理をする|
 |user_id|int|外部キー|
 |created_at|datetime| |
 |updated_at|datetime| |
 
 #### Labelsテーブル
-|カラム名|データ型|備考欄|
+|カラム名|データ型|カラム説明|
 |:---:|:---:|:---:|
 |label|string|ラベル名|
 |created_at|datetime| |
 |updated_at|datetime| |
 
 #### TaskLabelsテーブル
-|カラム名|データ型|備考欄|
+|カラム名|データ型|カラム説明|
 |:---:|:---:|:---:|
 |task_id|int|外部キー|
 |label_id|int|外部キー|
@@ -27,7 +28,7 @@
 |updated_at|datetime| |
 
 #### Usersテーブル
-|カラム名|データ型|備考欄|
+|カラム名|データ型|カラム説明|
 |:---:|:---:|:---:|
 |name|string|ユーザーネーム|
 |email|string|メールアドレス|
