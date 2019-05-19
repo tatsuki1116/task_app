@@ -1,10 +1,11 @@
 <div class="task_form">
 	<h3>New Task</h3>
 	<%= form_for @task do |f| %>
-		<%= f.label :task %>
-		<%= f.text_field :task %><br>
+	<%= render 'layouts/error_messages', task: @task %>
+		<%= f.label :task_name %>
+		<%= f.text_field :task_name %><br>
 		<%= f.label :details %>
-		<%= f.text_area :details %>
+		<%= f.text_area :details, :placeholder => "max is 255 characters" %>
 		<%= f.submit "タスク作成" %>
 	<% end %>
 </div>

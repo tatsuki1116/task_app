@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 	def index
-		@tasks = Task.all
+		@tasks = Task.all.order(id: "DESC")
 	end
 
 	def new
@@ -8,9 +8,12 @@ class TasksController < ApplicationController
 	end
 
 	def create
-		task = Task.new(task_params)
-		task.save
-		redirect_to root_path
+		@task = Task.new(task_params)
+		if @task.save
+			redirect_to @task
+		else
+		render :new
+		end
 	end
 
 	def show
@@ -35,7 +38,7 @@ class TasksController < ApplicationController
 
 private
 	def task_params
-		params.require(:task).permit(:task,:details)
+		params.require(:task).permit(:task_name,:details)
 	end
 
 end
