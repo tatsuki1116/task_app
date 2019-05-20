@@ -6,6 +6,8 @@
 		<%= f.text_field :task_name %><br>
 		<%= f.label :details %>
 		<%= f.text_area :details, :placeholder => "max is 255 characters" %>
+		<%= f.label :deadline_at %>
+		<%= f.date_select :deadline_at %>
 		<%= f.submit "タスク作成" %>
 	<% end %>
 </div>

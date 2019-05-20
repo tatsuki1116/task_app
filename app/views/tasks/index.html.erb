@@ -1,8 +1,14 @@
-<table>
+<table border=1>
 	<thead>
 		<tr>
 			<th>タスク</th>
 			<th>詳細</th>
+			<th>期限<%= form_tag(tasks_sort_path, method: :get) do %>
+				<%= submit_tag %>
+				<% end %>
+			</th>
+			<th></th>
+
 		</tr>
 	</thead>
 	<% @tasks.each do |task| %>
@@ -10,9 +16,12 @@
 		<tr>
 			<td><%= task.task_name %></td>
 			<td><%= task.details %></td>
-			<td><%= link_to 'show', task_path(task.id) %></td>
-			<td><%= link_to 'edit', edit_task_path(task.id) %></td>
-			<td><%= link_to 'destory', task_path(task.id), method: :delete %></td>
+			<td>締め切り<%= task.deadline_at.strftime('%Y/%m/%d') %></td>
+			<td>
+				<%= link_to 'show', task_path(task.id) %>
+				<%= link_to 'edit', edit_task_path(task.id) %>
+				<%= link_to 'destory', task_path(task.id), method: :delete %>
+			</td>
 		</tr>
 	</tbody>
 	<% end %>

@@ -6,3 +6,4 @@ ja:
       task:
         task_name: タスク
         details: 詳細
+        deadline_at: 期限
