@@ -5,6 +5,8 @@
 		<%= f.text_field :task_name %><br>
 		<%= f.label :details %>
 		<%= f.text_area :details %>
+		<%= f.label :deadline_at %>
+		<%= f.date_select :deadline_at %>
 		<%= f.submit "編集" %>
 	<% end %>
 </div>

@@ -3,6 +3,10 @@ class TasksController < ApplicationController
 		@tasks = Task.all.order(id: "DESC")
 	end
 
+	def sort
+
+	end
+
 	def new
 		@task = Task.new
 	end
@@ -37,7 +41,7 @@ class TasksController < ApplicationController
 
 private
 	def task_params
-		params.require(:task).permit(:task_name,:details)
+		params.require(:task).permit(:task_name,:details,:deadline_at)
 	end
 
 end
