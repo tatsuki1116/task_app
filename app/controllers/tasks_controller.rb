@@ -14,7 +14,6 @@ class TasksController < ApplicationController
 		else
 		render :new
 		end
-	end
 
 	def show
 		@task = Task.find(params[:id])
