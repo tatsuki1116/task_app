@@ -1,0 +1,19 @@
+<table>
+	<thead>
+		<tr>
+			<th>タスク</th>
+			<th>詳細</th>
+		</tr>
+	</thead>
+	<% @tasks.each do |task| %>
+	<tbody>
+		<tr>
+			<td><%= task.task %></td>
+			<td><%= task.details %></td>
+			<td><%= link_to 'show', task_path(task.id) %></td>
+			<td><%= link_to 'edit', edit_task_path(task.id) %></td>
+			<td><%= link_to 'destory', task_path(task.id), method: :delete %></td>
+		</tr>
+	</tbody>
+	<% end %>
+</table>

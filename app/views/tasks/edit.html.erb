@@ -1,0 +1,10 @@
+<div class="task_form">
+	<h3>New Task</h3>
+	<%= form_for @task do |f| %>
+		<%= f.label :task %>
+		<%= f.text_field :task %><br>
+		<%= f.label :details %>
+		<%= f.text_area :details %>
+		<%= f.submit "編集" %>
+	<% end %>
+</div>
