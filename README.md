@@ -5,7 +5,7 @@
 |:---:|:---:|:---:|
 |task_name|string|タスクの名前|
 |details|string|タスクの詳細|
-|deadline|datetime|締め切りを管理する|
+|deadline_at|datetime|締め切りを管理する|
 |priority|int|優先順位管理|
 |status|int|ステータス管理をする|
 |user_id|int|外部キー|

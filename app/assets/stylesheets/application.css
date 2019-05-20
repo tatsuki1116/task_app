@@ -19,6 +19,7 @@
   box-sizing: border-box;
 }
 
+
 #error_explanation {
   color: red;
   ul {
@@ -32,3 +33,4 @@
   .form-control {
     color: $state-danger-text;
   }
+
