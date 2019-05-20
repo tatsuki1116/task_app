@@ -4,7 +4,6 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.string :task_name
       t.string :details
 
-
       t.timestamps
     end
   end

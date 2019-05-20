@@ -1,7 +1,7 @@
 <div class="task_form">
 	<h3>New Task</h3>
 	<%= form_for @task do |f| %>
-	<%= render 'layouts/error_messages', task: @task %>
+	  <%= render 'layouts/error_messages', task: @task %>
 		<%= f.label :task_name %>
 		<%= f.text_field :task_name %><br>
 		<%= f.label :details %>
