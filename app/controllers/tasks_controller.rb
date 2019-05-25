@@ -7,14 +7,15 @@ class TasksController < ApplicationController
 			Task.all.order(deadline_at: "DESC")
 		elsif params[:deadline].to_i == 2
 			Task.all.order(deadline_at: "ASC")
+		elsif params[:status]
+			Task.status_sorted(params[:status])
 		else
 			Task.all.order(id: "DESC")
 		end
+		@d = params[:deadline]
+		@s = params[:status]
 	end
 
-	def sort
-
-	end
 
 	def new
 		@task = Task.new
