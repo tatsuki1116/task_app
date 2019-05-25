@@ -6,6 +6,7 @@
 		<%= f.label :details %>
 		<%= f.text_area :details %>
 		<%= f.label :deadline_at %>
+		<%= f.select :status, Task.statuses.keys.to_a, {} %>
 		<%= f.date_select :deadline_at %>
 		<%= f.submit "編集" %>
 	<% end %>
