@@ -6,7 +6,7 @@
 </div>
 
 
-<table border=1>
+<table class="table table-bordered">
 	<thead>
 		<tr>
 			<th>タスク名</th>
@@ -42,9 +42,4 @@
 	</tbody>
 	<% end %>
 </table>
-<h3><%= link_to "New", new_task_path %></h3>
-
-
- <script>
-
- </script>
+<%= paginate @tasks, class: "paginate" %>
