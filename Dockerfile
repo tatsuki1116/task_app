@@ -6,3 +6,5 @@ COPY Gemfile /task_app/Gemfile
 COPY Gemfile.lock /task_app/Gemfile.lock
 RUN bundle install
 COPY . /task_app
+
+CMD ["rails", "server", "-b", "0.0.0.0"]

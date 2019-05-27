@@ -1,10 +1,25 @@
-<table border=1>
+<div>タスク名検索
+	<%= form_tag(tasks_path, method: :get) do %>
+	  <%= text_field_tag :search, params[:search] %>
+	  <%= submit_tag 'Search', name: nil %>
+	<% end %>
+</div>
+
+
+<table class="table table-bordered">
 	<thead>
 		<tr>
-			<th>タスク</th>
+			<th>タスク名</th>
 			<th>詳細</th>
-			<th>期限<%= form_tag(tasks_sort_path, method: :get) do %>
-				<%= submit_tag %>
+			 <th>
+			 	<%= form_tag(tasks_path, method: :get) do %>
+			 		<%= select_tag :deadline, options_for_select({"期限：新しい順" => 1, "期限：古い順" => 2}, :selected => @d), id: 'deadline', prompt: '-' %>
+					<%= submit_tag 'sort' %>
+				<% end %>
+			</th>
+			<th><%= form_tag(tasks_path, method: :get) do %>
+					<%= select_tag :status, options_for_select({"waiting" => "waiting", "working" => "working", "completed" => "completed"}, :selected => @s), id: 'status', prompt: '-' %>
+					<%= submit_tag 'status' %>
 				<% end %>
 			</th>
 			<th></th>
@@ -16,7 +31,8 @@
 		<tr>
 			<td><%= task.task_name %></td>
 			<td><%= task.details %></td>
-			<td>締め切り<%= task.deadline_at.strftime('%Y/%m/%d') %></td>
+			<td><%= task.deadline_at.strftime('%Y/%m/%d') %></td>
+			<td><%= task.status %></td>
 			<td>
 				<%= link_to 'show', task_path(task.id) %>
 				<%= link_to 'edit', edit_task_path(task.id) %>
@@ -26,4 +42,4 @@
 	</tbody>
 	<% end %>
 </table>
-<h3><%= link_to "New", new_task_path %></h3>
+<%= paginate @tasks, class: "paginate" %>

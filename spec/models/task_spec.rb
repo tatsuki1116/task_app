@@ -2,21 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Task, type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
-  FactoryBot.define do
-  	factory :task do
-  		sequence(:task_name) { |n| "task_name#{n}"}
-  		sequence(:details) { |n| "details#{n}"}
+  it "task_nameの作成ができること" do
+	task = Task.new(task_name: "task1",details: "tasktasktask")
+   	expect(task.task_name).to eq "task1"
+   end
 
-	    trait :no_task_name do
-	      task_name {}
-	    end
-
-	    trait :no_details do
-	      task_name {}
-	    end
-
-	    trait :too_details do
-	      details {Faker::Lorem.characters(255)}
-	    end
-	end
+  it "detailsの作成ができること" do
+	task = Task.new(details: "tasktasktask")
+   	expect(task.details).to eq "tasktasktask"
+   end
 end

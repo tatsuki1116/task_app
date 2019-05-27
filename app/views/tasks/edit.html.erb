@@ -1,12 +1,17 @@
-<div class="task_form">
-	<h3>New Task</h3>
-	<%= form_for @task do |f| %>
-		<%= f.label :task_name %>
-		<%= f.text_field :task_name %><br>
-		<%= f.label :details %>
-		<%= f.text_area :details %>
-		<%= f.label :deadline_at %>
-		<%= f.date_select :deadline_at %>
-		<%= f.submit "編集" %>
-	<% end %>
+<div class="container">
+	<div class="row">
+		<div class="center">
+			<h3>Edit Task</h3>
+			<%= form_for @task do |f| %>
+				<p><%= f.label :task_name %></p>
+				<p><%= f.text_field :task_name %></p>
+				<p><%= f.label :details %></p>
+				<p><%= f.text_area :details %></p>
+				<p><%= f.label :deadline_at %></p>
+				<p><%= f.select :status, Task.statuses.keys.to_a, {} %></p>
+				<p><%= f.date_select :deadline_at %></p>
+				<%= f.submit "編集" %>
+			<% end %>
+		</div>
+	</div>
 </div>
