@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <header>
+      <nav>
+        <ul>
+          <li><%= link_to "Home", root_path,class: "nav_item" %></li>
+          <li><%= link_to "New", new_task_path,class: "nav_item" %></li>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>

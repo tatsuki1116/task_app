@@ -6,19 +6,20 @@
 </div>
 
 
-<table border=1>
+<table class="table table-bordered">
 	<thead>
 		<tr>
 			<th>タスク名</th>
 			<th>詳細</th>
 			 <th>
 			 	<%= form_tag(tasks_path, method: :get) do %>
-			 		<%= select_tag :deadline, options_for_select({"期限：新しい順" => 1, "期限：古い順" => 2}), id: 'deadline', prompt: '-' %>
+			 		<%= select_tag :deadline, options_for_select({"期限：新しい順" => 1, "期限：古い順" => 2}, :selected => @d), id: 'deadline', prompt: '-' %>
 					<%= submit_tag 'sort' %>
 				<% end %>
 			</th>
 			<th><%= form_tag(tasks_path, method: :get) do %>
-					<%= select_tag :status, params[:sort], prompt: '-' %>
+					<%= select_tag :status, options_for_select({"waiting" => "waiting", "working" => "working", "completed" => "completed"}, :selected => @s), id: 'status', prompt: '-' %>
+					<%= submit_tag 'status' %>
 				<% end %>
 			</th>
 			<th></th>
@@ -41,9 +42,4 @@
 	</tbody>
 	<% end %>
 </table>
-<h3><%= link_to "New", new_task_path %></h3>
-
-
- <script>
-
- </script>
+<%= paginate @tasks, class: "paginate" %>
