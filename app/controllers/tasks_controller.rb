@@ -1,16 +1,16 @@
 class TasksController < ApplicationController
 	def index
 		@tasks = if params[:search]
-							 Task.where('task_name LIKE ?', "%#{params[:search]}%")
-						 elsif params[:deadline].to_i == 1
-							 Task.all.order(deadline_at: "DESC").page(params[:page]).per(3)
-						 elsif params[:deadline].to_i == 2
-							 Task.all.order(deadline_at: "ASC").page(params[:page]).per(3)
-						 elsif params[:status]
-							 Task.status_sorted(params[:status]).page(params[:page]).per(3)
-						 else
-							 Task.page(params[:page]).per(3).reverse_order
-						 end
+				 Task.where('task_name LIKE ?', "%#{params[:search]}%")
+			 elsif params[:deadline].to_i == 1
+				 Task.all.order(deadline_at: "DESC").page(params[:page]).per(3)
+			 elsif params[:deadline].to_i == 2
+				 Task.all.order(deadline_at: "ASC").page(params[:page]).per(3)
+			 elsif params[:status]
+				 Task.status_sorted(params[:status]).page(params[:page]).per(3)
+			 else
+				 Task.page(params[:page]).per(3).reverse_order
+			 end
 		@d = params[:deadline]
 		@s = params[:status]
 	end
