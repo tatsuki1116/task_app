@@ -13,8 +13,15 @@
     <header>
       <nav>
         <ul>
+        <% if logged_in? %>
           <li><%= link_to "Home", root_path,class: "nav_item" %></li>
+          <li><%= link_to "My Task", user_path(@current_user),class: "nav_item" %></li>
           <li><%= link_to "New", new_task_path,class: "nav_item" %></li>
+          <li><%= link_to "Log out", logout_path, method: :delete, class: "nav_item" %></li>
+        <% else %>
+          <li><%= link_to "Sign up", new_user_path %></li>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
         </ul>
       </nav>
     </header>

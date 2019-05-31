@@ -48,10 +48,10 @@ ul{
 li{
   display: inline-block;
 }
+li:nth-child(even){
+  margin: 0 40px;
+}
 .nav_item{
   color: white;
   font-size: 25px;
-}
-li:first-of-type{
-  margin-right: 40px;
 }
