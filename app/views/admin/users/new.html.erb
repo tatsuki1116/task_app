@@ -1,8 +1,8 @@
 <div class="container">
 	<div class="row">
 		<div class="center">
-			<h3>Sign up</h3>
-			<%= form_for @user, url: users_path do |f| %>
+			<h3>ユーザー作成</h3>
+			<%= form_for @user, url: admin_users_path do |f| %>
 				<%= render 'users/user_error_messages', user: @user %>
 				<p><%= f.label :name %></p>
 				<p><%= f.text_field :name %></p>

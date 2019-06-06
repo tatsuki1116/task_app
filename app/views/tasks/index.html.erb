@@ -26,8 +26,8 @@
 
 		</tr>
 	</thead>
-	<% @tasks.each do |task| %>
 	<tbody>
+	<% @tasks.each do |task| %>
 		<tr>
 			<td><%= task.task_name %></td>
 			<td><%= task.details %></td>
@@ -39,7 +39,7 @@
 				<%= link_to 'destory', task_path(task.id), method: :delete %>
 			</td>
 		</tr>
-	</tbody>
 	<% end %>
+	</tbody>
 </table>
 <%= paginate @tasks, class: "paginate" %>

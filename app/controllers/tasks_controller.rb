@@ -3,13 +3,12 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   def index
-    # @tasks = Task.all.order(id: "DESC")
     @tasks = if params[:search]
-               Task.where('task_name LIKE ?', "%#{params[:search]}%")
+               Task.where('task_name LIKE ?', "%#{params[:search]}%").page(params[:page]).per(3)
              elsif params[:deadline].to_i == 1
-               Task.all.order(deadline_at: 'DESC').page(params[:page]).per(3)
+               Task.order(deadline_at: 'DESC').page(params[:page]).per(3)
              elsif params[:deadline].to_i == 2
-               Task.all.order(deadline_at: 'ASC').page(params[:page]).per(3)
+               Task.order(deadline_at: 'ASC').page(params[:page]).per(3)
              elsif params[:status]
                Task.status_sorted(params[:status]).page(params[:page]).per(3)
              else

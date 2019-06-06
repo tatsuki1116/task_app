@@ -33,5 +33,6 @@
 |name|string|ユーザーネーム|
 |email|string|メールアドレス|
 |password_digest|string|パスワード|
+|role|int|管理ユーザと一般ユーザを区別|
 |created_at|datetime| |
 |updated_at|datetime| |

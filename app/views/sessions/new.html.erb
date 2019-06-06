@@ -3,9 +3,6 @@
     <div class="center">
       <h3>Log in</h3>
       <%= form_for(:session, url: login_path) do |f| %>
-
-        <p><%= f.label :name %></p>
-        <p><%= f.text_field :name %></p>
         <p><%= f.label :email %></p>
         <p><%= f.email_field :email %></p>
         <p><%= f.label :password %></p>
