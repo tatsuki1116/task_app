@@ -6,6 +6,8 @@
 			  <%= render 'layouts/error_messages', task: @task %>
 				<p><%= f.label :task_name %></p>
 				<p><%= f.text_field :task_name %></p>
+				<%= select :label, :label_id, Label.all.map{|t| [t.label_name, t.id]} %>
+
 				<p><%= f.label :details %></p>
 				<p><%= f.text_area :details, :placeholder => "max is 255 characters" %></p>
 				<p><%= f.label :deadline_at %></p>

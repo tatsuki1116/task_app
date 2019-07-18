@@ -26,6 +26,10 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user_id = current_user.id
     if @task.save
+      @label = Tasklabel.new
+      @label.label_id = params[:label][:label_id]
+      @label.task_id = @task.id
+      @label.save
       redirect_to @task
     else
       render :new
