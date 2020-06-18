@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>名前</th>
+			<th>メールアドレス</th>
+			<th>タスク</th>
+			<th>タスク数</th>
+			<th>編集</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+		<tr>
+			<td><%= user.name %></td>
+			<td><%= user.email %></td>
+			<td><%= link_to "タスク確認", admin_user_path(user) %></td>
+			<td>タスク数：<%= user.tasks.count %></td>
+			<td><%= link_to "ユーザー情報編集", edit_admin_user_path(user) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

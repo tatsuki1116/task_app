@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="row">
+		<div class="center">
+			<h3>ユーザー作成</h3>
+			<%= form_for @user, url: admin_users_path do |f| %>
+				<%= render 'users/user_error_messages', user: @user %>
+				<p><%= f.label :name %></p>
+				<p><%= f.text_field :name %></p>
+				<p><%= f.label :email %></p>
+				<p><%= f.email_field :email %></p>
+				<p><%= f.label :password%></p>
+				<p><%= f.password_field :password %></p>
+				<%= f.submit "New user" %>
+			<% end %>
+		</div>
+	</div>
+</div>

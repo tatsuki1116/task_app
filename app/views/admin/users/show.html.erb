@@ -1,0 +1,37 @@
+<h3><%= @user.name %>のタスク</h3>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>タスク名</th>
+			<th>詳細</th>
+			 <th>
+			 	<%= form_tag(tasks_path, method: :get) do %>
+			 		<%= select_tag :deadline, options_for_select({"期限：新しい順" => 1, "期限：古い順" => 2}, :selected => @d), id: 'deadline', prompt: '-' %>
+					<%= submit_tag 'sort' %>
+				<% end %>
+			</th>
+			<th><%= form_tag(tasks_path, method: :get) do %>
+					<%= select_tag :status, options_for_select({"waiting" => "waiting", "working" => "working", "completed" => "completed"}, :selected => @s), id: 'status', prompt: '-' %>
+					<%= submit_tag 'status' %>
+				<% end %>
+			</th>
+			<th></th>
+
+		</tr>
+	</thead>
+	<% @tasks.each do |task| %>
+	<tbody>
+		<tr>
+			<td><%= task.task_name %></td>
+			<td><%= task.details %></td>
+			<td><%= task.deadline_at.strftime('%Y/%m/%d') %></td>
+			<td><%= task.status %></td>
+			<td>
+				<%= link_to 'show', task_path(task.id) %>
+				<%= link_to 'edit', edit_task_path(task.id) %>
+				<%= link_to 'destory', task_path(task.id), method: :delete %>
+			</td>
+		</tr>
+	</tbody>
+	<% end %>
+</table>

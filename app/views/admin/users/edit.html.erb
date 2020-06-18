@@ -1,0 +1,16 @@
+<div class="flash">
+	<% if flash[:success] %>
+		<p class="success"><%= flash[:success] %></p>
+	<% else %>
+	 <p class="danger"><%= flash[:danger] %></p>
+	<% end %>
+</div>
+
+<%= form_for(@user,url: admin_user_path) do |f| %>
+	<%= f.text_field :name %>
+	<%= f.email_field :email %>
+
+	<%= f.submit "編集" %>
+<% end %>
+
+<%= link_to "ユーザー削除", admin_user_path(@user), method: :delete, data: { confirm: "本当に削除しますか？" } %>

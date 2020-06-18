@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="center">
+      <h3>Log in</h3>
+      <%= form_for(:session, url: login_path) do |f| %>
+        <p><%= f.label :email %></p>
+        <p><%= f.email_field :email %></p>
+        <p><%= f.label :password %></p>
+        <p><%= f.password_field :password %></p>
+        <%= f.submit "Log in" %>
+      <% end %>
+
+      <%= link_to "Sign up?", new_user_path %></p>
+    </div>
+  </div>
+</div>
